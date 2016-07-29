@@ -31,10 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'content:ntext',
-            'category_id',
+            'category.name',
             'status',
-            'created_at',
-            'updated_at',
+            [
+                'attribute' => 'status',
+                'value' => ($model->status==1)?'Опубликован':'Черновик',
+            ],
+            'created_at:datetime',
+            'updated_at:datetime'
         ],
     ]) ?>
 

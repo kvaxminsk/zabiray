@@ -41,16 +41,19 @@ AppAsset::register($this);
             ['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-            ['label' => Yii::$app->user->identity->username, 'items' => [
-                ['label' => 'Category', 'url' => ['/category']],
-                ['label' => 'Posts', 'url' => ['/post']],
-                ['label' => 'Comments', 'url' => ['/comment']],
-                [
-                    'label' => 'Logout',
-                    'url' => ['/site/logout'],
-                    'linkOptions' => ['data-method' => 'post']]
-            ]
+            )
+                :
+            (
+            ['label' => Yii::$app->user->identity->username,
+                'items' => [
+                    ['label' => 'Category', 'url' => ['/category']],
+                    ['label' => 'Posts', 'url' => ['/post']],
+                    ['label' => 'Comments', 'url' => ['/comment']],
+                    [
+                        'label' => 'Logout',
+                        'url' => ['/site/logout'],
+                        'linkOptions' => ['data-method' => 'post']]
+                ]
             ]
             )
         ],

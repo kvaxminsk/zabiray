@@ -24,12 +24,16 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'content:ntext',
-            'category_id',
-            'status',
+            'category.name',
+            [
+                'attribute' => 'status',
+                'value' => function ($data) { return ($data->status==1)?'Опубликован':'Черновик'; }
+            ],
             // 'created_at',
             // 'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+    ]);
+    ?>
 </div>
